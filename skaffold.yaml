@@ -23,13 +23,9 @@ build:
   # here:
   # https://skaffold.dev/docs/concepts/#image-repository-handling
   - image: recommendationservice
-    hooks:
-      after:
-        - command: ["sh", "-c", "docker tag ajayksri/recommendationservice:$(git rev-parse --short HEAD) ajayksri/recommendationservice:latest"]
-        - command: ["sh", "-c", "docker push ajayksri/recommendationservice:latest"]
     context: src/recommendationservice
   tagPolicy:
-    gitCommit: {}
+    sha256: {}
   local:
     useBuildkit: false
 manifests:
