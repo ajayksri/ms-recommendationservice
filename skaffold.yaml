@@ -26,6 +26,7 @@ build:
     hooks:
       after:
         - command: ["sh", "-c", "docker tag ajayksri/recommendationservice:$(git rev-parse --short HEAD) ajayksri/recommendationservice:latest"]
+        - command: ["sh", "-c", "docker push ajayksri/recommendationservice:latest"]
     context: src/recommendationservice
   tagPolicy:
     gitCommit: {}
